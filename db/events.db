@@ -1,0 +1,13 @@
+{"_id":"UD2EdcpMBYd3MHbZ","createdAt":{"$$date":1467269380610},"updatedAt":{"$$date":1467269453441},"tags":"[\"sports\"]"}
+{"event":{"name":"Olympics","startAt":"Fri Aug 05 2016 00:00:00 GMT-0700 (PDT)","endAt":"Sun Aug 21 2016 00:00:00 GMT-0700 (PDT)","hashtag":"olympics"},"_id":"bxI5AD5Ls9sbgtfF","createdAt":{"$$date":1467269507010},"updatedAt":{"$$date":1467269507010}}
+{"_id":"ixuXeZoSsj5Ozra7","createdAt":{"$$date":1467269308525},"updatedAt":{"$$date":1467269308525}}
+{"event":{"name":"Olympics","startAt":"Fri Aug 05 2016 00:00:00 GMT-0700 (PDT)","endAt":"Sun Aug 21 2016 00:00:00 GMT-0700 (PDT)","hashtag":"olympics"},"_id":"uE8ZlZ0Kr0VOFqL1","createdAt":{"$$date":1467269488843},"updatedAt":{"$$date":1467269488843}}
+{"$$deleted":true,"_id":"bxI5AD5Ls9sbgtfF"}
+{"$$deleted":true,"_id":"ixuXeZoSsj5Ozra7"}
+{"$$deleted":true,"_id":"UD2EdcpMBYd3MHbZ"}
+{"$$deleted":true,"_id":"uE8ZlZ0Kr0VOFqL1"}
+{"name":"Olympics","startAt":"Fri Aug 05 2016 00:00:00 GMT-0700 (PDT)","endAt":"Sun Aug 21 2016 00:00:00 GMT-0700 (PDT)","hashtag":"olympics","_id":"2G7Zc1dCd7JFcIUP","createdAt":{"$$date":1467269617993},"updatedAt":{"$$date":1467269617993}}
+{"name":"Olympics","startAt":"Fri Aug 05 2016 00:00:00 GMT-0700 (PDT)","endAt":"Sun Aug 21 2016 00:00:00 GMT-0700 (PDT)","hashtag":"olympics","_id":"2G7Zc1dCd7JFcIUP","createdAt":{"$$date":1467269617993},"updatedAt":{"$$date":1467269642282},"tags":"[\"sports\"]"}
+{"name":"Olympics","startAt":"Fri Aug 05 2016 00:00:00 GMT-0700 (PDT)","endAt":"Sun Aug 21 2016 00:00:00 GMT-0700 (PDT)","hashtag":"olympics","_id":"S4oEWcSOx3kfd4cO","createdAt":{"$$date":1467269780203},"updatedAt":{"$$date":1467269780203}}
+{"name":"Olympics","startAt":"Fri Aug 05 2016 00:00:00 GMT-0700 (PDT)","endAt":"Sun Aug 21 2016 00:00:00 GMT-0700 (PDT)","hashtag":"olympics","_id":"BpuMoQzSleIMU8TV","createdAt":{"$$date":1467270197740},"updatedAt":{"$$date":1467270197740}}
+{"name":"Olympics","startAt":"Fri Aug 05 2016 00:00:00 GMT-0700 (PDT)","endAt":"Sun Aug 21 2016 00:00:00 GMT-0700 (PDT)","hashtag":"olympics","_id":"BpuMoQzSleIMU8TV","createdAt":{"$$date":1467270197740},"updatedAt":{"$$date":1467270201968},"tags":"[\"sports\"]"}
