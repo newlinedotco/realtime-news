@@ -15,7 +15,7 @@ It is graciously built with the following technologies:
 * [node](http://nodejs.org)
 * [express](http://expressjs.com/)
 * [linvodb3](https://github.com/Ivshti/linvodb3)
-* [leveldown]()
+* [levelup](https://github.com/Level/levelup)
 
 We use the leveldb database to provide an easy method for connecting other datbase backends to the system in the future. For the time being, the `LinvoDB` API provides a nice wrapper around a single-node filesystem backend. Combining the speed of `NeDB` with the live query capabilities of leveldb, `LinvoDB` is a good choice for speed and single-node database requirements.
 
