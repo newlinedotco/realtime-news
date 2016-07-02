@@ -133,3 +133,31 @@ curl -s -X "GET" "http://localhost:8001/events/upcoming" | jq
 ```
 
 ![](public/images/CHECK_UPDATED.png)
+
+#### Remove an event (`DELETE /events/:id`)
+
+Awesome. Finally, we can delete a single event with the delete API. Let's add one to delete (keeping around our existing event for later).
+
+```bash
+curl -s -X "POST" "http://localhost:8001/events" \
+	-H "Content-Type: application/json; charset=utf-8" \
+	-d "{\"event\":{\"name\":\"Presidentail election, 2016\",\"startAt\":\"Tue Nov 08 2016 00:00:00 GMT-0500 (EST)\",\"endAt\":\"Tue Nov 08 2016 00:00:00 GMT-0500 (EST)\",\"hashtag\":\"election\"}}" | jq
+```
+
+![](public/images/ADD_EVENT_TO_DELETE.png)
+
+Now, let's delete this event by it's `id`:
+
+```bash
+curl -s -X "DELETE" "http://localhost:8001/events/df11c0de" | jq
+```
+
+![](public/images/DELETE_EVENT.png)
+
+#### Clear _all_ events (`DELETE /events/_clear`)
+
+To wipe out the entire database of events, use the `_clear` api.
+
+```bash
+curl -s -X "DELETE" "http://localhost:8001/events/_clear" | jq
+```
