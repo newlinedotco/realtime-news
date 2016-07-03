@@ -227,5 +227,3 @@ To see this more clearly, let's use the `jq` tool to show us the text of all the
 curl -s -X "GET" "http://localhost:8001/tweets/search?q=dogs&count=1" | \
   jq .tweets.statuses[].text
 ```
-
-// TODO:
