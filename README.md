@@ -29,6 +29,14 @@ cd realtime-news
 npm install
 ```
 
+We'll also need a `.env` file at the root of the realtime-news directory. Copy the `.env.example` file at the root to your own.
+
+```bash
+cp .env.example .env
+```
+
+We'll fill this information out later (see [setting up twitter](#tweets)).
+
 All of the relevant scripts for managing the library are bundled in the `package.json`'s `scripts`. We'll start up our server in `dev` mode by using the `dev` script, like so:
 
 ```bash
@@ -161,3 +169,63 @@ To wipe out the entire database of events, use the `_clear` api.
 ```bash
 curl -s -X "DELETE" "http://localhost:8001/events/_clear" | jq
 ```
+
+## Tweets
+
+The Realtime news server serves twitter stream messages as we well over a REST API.
+
+In order to use this api, we have a bit more set up. [Get authorization from Twitter](https://apps.twitter.com) to get started. Update your `.env` file with the information at the root of your clone.
+
+```bash
+TWITTER_KEY=YOUR_TWITTER_KEY
+TWITTER_SECRET=YOUR_TWITTER_SECRET
+TWITTER_ACCESS_KEY=YOUR_TWITTER_ACCESS_KEY
+TWITTER_SECRET_KEY=YOUR_TWITTER_SECRET_KEY
+```
+
+After you've set these values, we're ready to get a search cursor, which we can use to make a request for tweets. As we'll see, we can get a live search query (where our server will send out broadcasts of new tweets) or a static one. The REST API is simple and gives us back a static list of tweets.
+
+### Getting a list of tweets (`GET /tweets/search`)
+
+To get a list of tweets based upon a search term or an event (these are essentially the same query with two different query params), we can use the search API.
+
+The basic search query without any parameters will find the latest event and use that search to make a request. For instance, in this demo query, the latest event is our olympics event, so the following will make a search to twitter with the hashtag associated with the olympics event's hashtag: `olympics`:
+
+```bash
+curl -s -X "GET" "http://localhost:8001/tweets/search" | jq
+```
+
+![](public/images/TWEET_SEARCH.png)
+
+We can pass an event id to the search with the query parameter of `eventId`, like so:
+
+```bash
+curl -s -X "GET" "http://localhost:8001/tweets/search?eventId=31a46d13" | jq
+```
+
+![](public/images/TWEET_SEARCH_BY_ID.png)
+
+If no event is found by the `eventId`, the query will return null _unless_ a query parameter of `q` is passed (as a way to allow the REST server to act as a twitter proxy to search twitter in a generic way).
+
+```bash
+curl -s -X "GET" "http://localhost:8001/tweets/search?q=puppies" | jq
+```
+
+![](public/images/TWEET_SEARCH_BY_QUERY.png)
+
+We can limit the count of tweets we want to get back by passing a `count` parameter. For instance, if we just want to get a single tweet, we can easily do this by passing a count of 1 into our query.
+
+```bash
+curl -s -X "GET" "http://localhost:8001/tweets/search?q=puppies&count=1" | jq
+```
+
+![](public/images/TWEET_SEARCH_BY_QUERY_COUNT.png)
+
+To see this more clearly, let's use the `jq` tool to show us the text of all the tweets we are requesting in the last query.
+
+```bash
+curl -s -X "GET" "http://localhost:8001/tweets/search?q=dogs&count=1" | \
+  jq .tweets.statuses[].text
+```
+
+// TODO:
