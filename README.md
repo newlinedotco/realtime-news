@@ -227,3 +227,53 @@ To see this more clearly, let's use the `jq` tool to show us the text of all the
 curl -s -X "GET" "http://localhost:8001/tweets/search?q=dogs&count=1" | \
   jq .tweets.statuses[].text
 ```
+
+![](public/images/one_tweet.png)
+
+## Tweet images (`GET /tweets/images`)
+
+We can also do a pure image search with the tweets using the search API.
+
+```bash
+curl -s -X "GET" "http://localhost:8001/tweets/images" | jq
+```
+
+![](public/images/tweet_image_search.png)
+
+The images api uses the same underlying function that the `/tweets/search` uses, so the same options apply.
+
+For instance, getting one tweet and using `jq` to parse the text from the tweet:
+
+```bash
+curl -s -X "GET" "http://localhost:8001/tweets/images?count=1" | jq .tweets.statuses[].text
+```
+
+![](public/images/tweet_image_search_one.png)
+
+## Tweets through websockets
+
+We can use the websocket api to make a request to "listen" for the twitter stream using the Twitter stream api. We'll use the [Google Chrome](https://www.google.com/chrome/) developer tools to demo connecting over websockets.
+
+To connect through websockets, we'll use the url of `ws://localhost:8001/ts` (`ts` standing for *T* witter *S* tream) to connect using the `WebSocket` api):
+
+```javascript
+const ws = new WebSocket('ws://localhost:8001/ts')
+```
+
+![](public/images/ws_connect.png)
+
+If this connection succeeds, we can add a listen event to listen for any new data to be received over the websocket connection. When we connect, we need to send a note telling our server what tag to track. We'll do this by sending a JSON data packet with the tag:
+
+```javascript
+ws.send('puppies');
+```
+
+![](public/images/ws_tag.png)
+
+Now we can set a function to get called whenever we get a new `message` (in our case, tweets). Let's add one to `console.log()` the new data as it comes in:
+
+```javascript
+ws.onmessage = (msg) => console.log(JSON.parse(msg.data))
+```
+
+![](public/images/ws_msg.png)
