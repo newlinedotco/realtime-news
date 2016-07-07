@@ -21,6 +21,7 @@
     "moment": "^2.13.0",
     "morgan": "^1.7.0",
     "multer": "^1.1.0",
+    "oauth-shim": "git+https://github.com/MrSwitch/node-oauth-shim.git",
     "serve-favicon": "^2.3.0",
     "twit": "^2.2.4",
     "whiskers": "^0.3.3",

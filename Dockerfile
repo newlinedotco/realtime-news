@@ -9,10 +9,11 @@ RUN npm install --production
 
 RUN mkdir -p /usr/src/app/db && \
     mkdir -p /usr/src/app/public
-    
+
 COPY .env /usr/src/app/
 COPY dist /usr/src/app/dist
 COPY public /usr/src/app/public
+COPY views /usr/src/app/views
 
 EXPOSE 8001
 
