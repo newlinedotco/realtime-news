@@ -3,3 +3,4 @@ node_modules/
 dist/
 db
 npm-debug.log
+dump.rdb
