@@ -6,7 +6,11 @@
     "dev": "nodemon lib/index.js --exec babel-node --presets es2015,stage-2",
     "build": "babel lib -d dist",
     "start": "node dist/index.js",
-    "test": "mocha --compilers js:babel-register"
+    "test": "mocha --compilers js:babel-register",
+
+    "deploy:prepare": "npm run build && docker-compose build",
+    "deploy:launch": "docker-compose start",
+    "deploy": "npm run deploy:prepare && npm run deploy:launch"
   },
   "dependencies": {
     "body-parser": "^1.15.2",
