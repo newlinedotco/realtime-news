@@ -9,7 +9,7 @@
     "test": "mocha --compilers js:babel-register",
 
     "deploy:prepare": "npm run build && docker-compose build",
-    "deploy:launch": "docker-compose start",
+    "deploy:launch": "docker-compose  -f docker-compose.yml -f deploy/production-compose.yml start",
     "deploy": "npm run deploy:prepare && npm run deploy:launch"
   },
   "dependencies": {
