@@ -22,11 +22,13 @@
     "moment": "^2.13.0",
     "morgan": "^1.7.0",
     "multer": "^1.1.0",
+    "node-schedule": "^1.1.1",
     "oauth-shim": "git+https://github.com/MrSwitch/node-oauth-shim.git",
     "redis": "^2.6.2",
     "redisdown": "^0.1.12",
     "serve-favicon": "^2.3.0",
     "socketcluster": "^4.7.0",
+    "sockjs": "^0.3.17",
     "twit": "^2.2.4",
     "whiskers": "^0.3.3",
     "ws": "^1.1.1"
