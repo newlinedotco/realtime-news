@@ -24,6 +24,7 @@ services:
       VIRTUAL_PORT: 8001
       VIRTUAL_HOST: twit.local.dev
       NODE_ENV: development
+    restart: always
     ports:
       - 8001
     links:
