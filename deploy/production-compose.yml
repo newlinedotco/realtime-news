@@ -14,6 +14,7 @@ services:
       - proxy-tier
 
   app:
+    restart: always
     depends_on:
       - nginx-proxy
     environment:
@@ -21,6 +22,8 @@ services:
       LETSENCRYPT_HOST: realtime.fullstackweb.org
       LETSENCRYPT_EMAIL: us@fullstack.io
       NODE_ENV: production
+  redis:
+    restart: always
 
 networks:
   proxy-tier:

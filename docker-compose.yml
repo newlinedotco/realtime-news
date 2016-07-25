@@ -24,7 +24,6 @@ services:
       VIRTUAL_PORT: 8001
       VIRTUAL_HOST: twit.local.dev
       NODE_ENV: development
-    restart: always
     ports:
       - 8001:8001
     depends_on:
@@ -35,6 +34,7 @@ services:
 
   redis:
     image: redis
+    restart: always
     ports:
       - 6379:6379
     networks:
